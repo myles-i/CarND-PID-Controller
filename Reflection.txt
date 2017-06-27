@@ -1,0 +1,15 @@
+Effects of P-term:
+The P term adds a controller input proportional to the cross-track error (CTE). This is the dominant player in the controller and drives the response (no pun intented). 
+
+Effects of the D-term:
+The D term adds a controller input that is proportional to the derivative of the controller. This provides a damping effect to help decrease overshoot due to a P-term that is too strong. Since this is a derivative, it should be divided by dt, but since this is not how I setup the controller, the Kd term is larger to account for it.
+
+Effects of the I-term:
+The i-term helps decrease any steady-state error due to a constant disturbance on the vehicle. It can have a de-stabilizing effect and so should be used with caution. In my case, I chose a small I-term because it was not very important
+
+
+Chosing Hyperparameters:
+I chose my hypermaramters manually using an interative, manual tuning approach. First, I increased the P-term until the car was responding well to cross-track errors, but was oscillating to much about the center-line. Then I increased the D-term to help damp these oscillations. Once this was working well, I iteratively adjusted the PD terms slightly for better performance. Finally, I added a small integrator term for completness, but chose a small Ki in order to not introduce any stability problems. Note that while the terms K terms I chose seem orders of magnitude different, this is partially because I am not explicitly dividing by dt for the derivative term, or multiplying by dt for the integral term. Instead these dt's are implicit in the actual hyperparameters. The final parameters I chose were:
+Kp = 0.2;
+Kd = 1.2;
+Ki = 0.0001;

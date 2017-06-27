@@ -34,9 +34,15 @@ int main()
   uWS::Hub h;
 
   PID pid;
-  double Kp = 0.1;
-  double Kd = 0.5;
-  double Ki = 0;
+  // double Kp = 0.12;
+  // double Kd = 10;
+  // double Ki = 0.00015;
+
+
+  //throttle 0.3
+  double Kp = 0.2;
+  double Kd = 1.2;
+  double Ki = 0.0001;
   pid.Init(Kp, Ki, Kd);
 
 
