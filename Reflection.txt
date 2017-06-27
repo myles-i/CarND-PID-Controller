@@ -1,3 +1,6 @@
+The following link contains a sample video of the car being controlled by the PID controller. The throttle was kept constant at 0.3 during the whole video:
+https://youtu.be/cXWl5YLwf1U
+
 Effects of P-term:
 The P term adds a controller input proportional to the cross-track error (CTE). This is the dominant player in the controller and drives the response (no pun intented). 
 
